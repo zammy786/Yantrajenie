@@ -1,0 +1,46 @@
+syntax="proto3";
+option java_package="org.example";
+
+service FeedBack{
+  rpc Feedback(feedbackMessage) returns(feedbackResponse);
+  rpc deleteFeedback(rmvFeedback) returns(feedbackResponse);
+  rpc editFeedback(editF) returns(feedbackResponse);
+  rpc GetById(commonID) returns(stream GetByUidResp);
+  rpc GetBySpid(commonSPID) returns (stream GetBySpidResp);
+
+}
+message commonID{
+  string uid=1;
+}
+message GetByUidResp{
+ string uid=1;
+ string feedback=2;
+}
+message commonSPID{
+  string spid=1;
+}
+message GetBySpidResp{
+  string spid=1;
+  string feedback=2;
+}
+
+message feedbackMessage{
+  string uid=1;
+  string uname=2;
+  string feed=3;
+  int32 rating=4;
+  string spid=5;
+}
+message feedbackResponse{
+  string respMsg=1;
+  int32 respCode=2;
+  int32 feed_id=3;
+}
+message rmvFeedback{
+  int32 feedid=1;
+}
+message editF{
+  string new_msg=1;
+  int32 feedid=2;
+  int32 rating=3;
+}

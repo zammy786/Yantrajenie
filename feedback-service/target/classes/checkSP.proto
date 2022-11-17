@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "org.example";
+
+service checkSP{
+  rpc validateSP(checkSPID) returns (checkResp);
+
+}
+
+message checkSPID{
+  string SPID = 1;
+}
+message checkResp{
+  string respmsg=1;
+}

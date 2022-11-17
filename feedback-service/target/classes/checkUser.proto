@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "org.example";
+
+service checkUser{
+  rpc validateUser(checkuid) returns (checkResp);
+
+}
+
+message checkuid{
+  int32 userId = 1;
+}
+message checkResp{
+  string respmsg=1;
+}

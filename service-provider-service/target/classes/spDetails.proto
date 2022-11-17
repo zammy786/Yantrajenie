@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+option java_package = "com.yantajenie.serviceProvider.services";
+
+service serviceProvider{
+  rpc spCreateAddress(spAddressData) returns(APIResponce);
+  rpc spUpdateAddress(spUpdateAddressData) returns(APIResponce);
+  rpc deleteAddressUsingId(commid) returns(APIResponce);
+  rpc spCreateProfile(spProfileData) returns(APIResponce);
+  rpc spUpdateProfileUsingId(spUpdateProfile) returns(ProfileDetails);
+  rpc spGetProfileDetailsUsingId(commid) returns(ProfileDetails);
+  rpc spDeleteProfileUsingId(commid) returns(APIResponce);
+  rpc ServiceProviderStatus(ServiceProvider) returns(APIResponce);
+  rpc FeedbackValid(commid) returns (APIResponce);
+  rpc ChangePassword(changepassword) returns(APIResponce);
+}
+
+message changepassword{
+  string old_password=1;
+  string new_password=2;
+  string Check_new_password=3;
+}
+
+message spAddressData{
+  string  id = 1;
+  string shopNo = 2;
+  string shopName=3;
+  string streetName = 4;
+  string landmark = 5;
+  string city = 6;
+  string state = 7;
+  string pinCode = 8;
+}
+
+message spUpdateAddressData{
+  string  id = 1;
+  string shopNo = 2;
+  string shopName=3;
+  string streetName = 4;
+  string landmark = 5;
+  string city = 6;
+  string state = 7;
+  string pinCode = 8;
+}
+
+message ServiceProvider{
+  bool spAvilable=1;
+  string spSlotTime=2;
+  bool spTakingReq=3;
+
+}
+
+  message spProfileData{
+    string  id = 1;
+    string first_name=2;
+    string last_name=3;
+    string userName=4;
+    string password=5;
+    string mobileNumber = 7;
+    string email = 8;
+    string counterAvilabale=9;
+    repeated string deviceList=10;
+    repeated string Brands=11;
+    repeated string holiday=12;
+
+}
+
+message spUpdateProfile{
+    string  id = 1;
+    string first_name=2;
+    string last_name=3;
+    string mobileNumber = 4;
+    string email = 5; //Not update
+    string counterAvilable=6;
+}
+
+message ProfileDetails{
+
+  spUpdateProfile profileDetails=1;
+  int32 responceCode=2;
+  string responceMessage=3;
+  repeated string deviceList=4;
+  repeated string Brands=5;
+  repeated string holiday=6;
+}
+
+message commid{
+  string id=1;
+}
+
+
+message APIResponce{
+  string responceMessage = 1;
+  int32 responceCode = 2;
+  repeated string errorLis = 3;
+
+}
+
+message  empty{
+
+}
+
+

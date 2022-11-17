@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+option java_package = "org.example";
+
+service userService{
+  //i will get this data from registration table via channel
+  rpc addUser(adduser) returns (Response1);
+  rpc usdetails(userdetails) returns (Response2);
+  rpc usaddress(address) returns (Response3);
+  rpc usupdate(update) returns  (Response4);
+  rpc usdelete(deluser) returns (Response5);
+  rpc usvalidate(validate) returns (Response6);
+}
+
+message adduser{
+  int32 userId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string username = 4;
+  string password = 5;
+  string email = 6;
+  string contactNo = 7;
+}
+
+message userdetails{
+  int32 userId =1;
+}
+
+message address{
+  int32 userId = 1;
+  string flatNo = 2;
+  string streetName = 3;
+  string landMark = 4;
+  string city = 5;
+  string state = 6;
+  int32  pinCode = 7;
+}
+
+message update{
+  int32 userId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  int32 mobileNumber = 4;
+  string email = 5;
+  string password = 6;
+  string confirmPassword = 7;
+  string flatNo = 8;
+  string streetName = 9;
+  string landMark = 10;
+  string city = 11;
+  string state = 12;
+  int32  pinCode = 13;
+}
+
+message deluser{
+  int32 userId = 1;
+}
+
+message validate{
+  int32 userId = 1;
+}
+
+message Response1{
+  string resMsg = 1;
+  string resCode = 2;
+}
+
+message Response2{
+  int32 userId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string username = 4;
+  string password = 5;
+  string email = 6;
+  string contactNo = 7;
+  string resCode = 14;
+}
+
+message Response3{
+  int32 userId = 1;
+  string flatNo = 2;
+  string streetName = 3;
+  string landMark = 4;
+  string city = 5;
+  string state = 6;
+  int32  pinCode = 7;
+  string resMsg = 8;
+  string resCode = 9;
+}
+
+message Response4{
+  string resMsg = 1;
+  string resCode = 2;
+}
+
+message Response5{
+  string resMsg = 1;
+  string resCode = 2;
+}
+
+message Response6{
+  string resMsg = 1;
+}

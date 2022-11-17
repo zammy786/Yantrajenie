@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package = "com.yantragenie.status";
+
+service bookingStatus {
+  rpc ShowStatus(Request) returns(Response);
+
+  rpc UpdateTicketStatus(UpdateRequest) returns(Response);
+
+  rpc UpdateBookingStatus(UpdateRequest) returns(Response);
+
+  rpc InsertNewBooking(Request) returns(Response);
+
+}
+
+message Request{
+  string Id = 1;
+  string Email = 2;
+}
+message Response{
+  int32 status_code = 1;
+  string booking_status = 2;
+  string ticket_status = 3;
+  string response_message = 4;
+
+}
+
+message UpdateRequest{
+  string Id = 1;
+  string Status = 2;
+}

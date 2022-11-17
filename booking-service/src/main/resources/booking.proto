@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+option java_package = "com.yantragenie.bookings";
+
+service booking {
+  rpc getBookingDetailUsingUserId(commonid) returns (stream userBookings);
+  rpc getBookingDetailsUsingServiceProviderId(commonid) returns (stream userBookings);
+  rpc getBookingDetailsUsingId(commonid) returns (bookingDetails);
+  rpc createBooking(bookingCreate) returns (BookingApiResponse);
+  rpc updateBooking(bookingupdatepayload) returns (BookingApiResponse);
+  rpc cancelBooking(commonid) returns (commonResponse);
+}
+
+
+
+message commonid{
+  string id = 1;
+}
+
+message commonResponse{
+  int32 responseCode = 1;
+  string responseMessage =2;
+}
+
+message userBookings{
+  bookingUpdateData bdetails = 1;
+  int32 responseCode =2;
+  string responseMessage= 3;
+}
+
+
+message bookingCreate{
+  string userid = 1;
+  string serviceproviderid = 2;
+  string prefferdServiceLocation =6;
+  string device = 7;
+  string serviceDeviceBrand = 8;
+  string issueDescription = 12;
+  string preferredTimeSlot = 13;
+  string preferredDaySlot = 14;
+}
+
+message bookingDetails{
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string mobileNumber = 5;
+  string bookingdate = 6;
+  string prefferdServiceLocation =7;
+  string device = 8;
+  string serviceDeviceBrand = 9;
+  string status = 10;
+  string userId = 11;
+  string servieProviderId = 12;
+  string issueDescription = 13;
+  string preferredTimeSlot = 14;
+  string preferredDaySlot = 15;
+  int32 responseCode = 16;
+  string responseMessage= 17;
+
+}
+
+message BookingApiResponse{
+  string id = 3;
+  int32 responseCode = 2;
+  string responseMessage= 4;
+}
+
+message bookingUpdateData{
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string mobileNumber = 5;
+  string bookingdate = 6;
+  string prefferdServiceLocation =7;
+  string device = 8;
+  string serviceDeviceBrand = 9;
+  string status = 10;
+  string userId = 11;
+  string servieProviderId = 12;
+  string issueDescription = 13;
+  string preferredTimeSlot = 14;
+  string preferredDaySlot = 15;
+}
+
+message bookingupdatepayload{
+  string bookingid =1;
+  string device = 3;
+  string brand =4;
+  string issuedesc=5;
+  string timeslot =6;
+  string dayslot = 7;
+  string location = 8;
+}
+
+message empty{}

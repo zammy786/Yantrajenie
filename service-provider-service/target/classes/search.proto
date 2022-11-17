@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_package = "com.yantajenie.serviceProvider.search";
+
+service search{
+  rpc SearchServiceProvider(Serviceprovider) returns (stream ServiceProviderDetails);
+  rpc ServiceProviderDataBase(ServiceProviderDetails) returns(ApiResponse);
+}
+
+message Serviceprovider{
+  string city=3;
+  string brands=4;
+  string devices=5;
+}
+
+message ServiceProviderDetails{
+  string id = 16;
+  string first_name=1;
+  string last_name=2;
+  string mobileNumber=3;
+  string email=4;
+  string city=5;
+  string shopname=6;
+  string shopno=7;
+  string landmark=8;
+  string streetname=9;
+  string pincode=10;
+  string state=11;
+  repeated string device_list=12;
+  repeated string brands=13;
+  string responceMessgae=14;
+  int32 responceCode=15;
+}
+
+message ApiResponse{
+  int32 responseCode=1;
+  string responseMessage=2;
+}

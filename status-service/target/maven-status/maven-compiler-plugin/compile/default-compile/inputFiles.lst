@@ -1,0 +1,10 @@
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/service/ienums/TicketStatus.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/service/ienums/BookingStatus.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/generated/email1Grpc.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/service/DatabaseService.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/generated/bookingStatusGrpc.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/service/StatusServer.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/Main.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/generated/Email.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/generated/Status.java
+/home/nikhil.anand2/grpcProj/yantrajenie/status-service/src/main/java/model/StatusModel.java

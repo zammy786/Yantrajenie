@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option java_package = "com.yantrajenie.authentication";
+
+service authentication{ //registration, login authentication, Otp generation(forget password), Reset password
+  //registration method with registration table for both user and service provider
+  rpc registration(regRequest) returns (regResponse);
+  //for authentication of the user when they login to the system (user and service provider)
+  rpc login(loginRequest)  returns (loginResponse);
+  //forget password(generate an otp)
+  rpc forgetPassword(forgetPassRequest) returns (forgetPassResponse);
+  //reset password
+  rpc resetPassword(resetPassRequest) returns (resetPassResponse);
+}
+
+//Registration request
+message regRequest{
+  string firstName = 3;
+  string lastName = 4;
+  string username = 1;
+  string password = 2;
+  string  email  = 5;
+  string contactNo = 6;
+  string userType = 7;
+}
+
+//Registration response
+message regResponse{
+  string responseMessage = 1;
+  int32 responseCode = 2;
+}
+
+//Login request
+message loginRequest{
+  string username = 1;
+  string password = 2;
+}
+
+//Login response
+message loginResponse{
+  string responseMessage = 1;
+  int32 responseCode = 2;
+  string token = 3;
+}
+
+//Forget Password request
+message forgetPassRequest{
+  string email = 1;
+}
+
+//Forget Password response
+message forgetPassResponse{
+  string messageForget = 1;
+  int32 responseCode = 2;
+}
+
+//Reset password request
+message resetPassRequest{
+  string password = 1;
+  //valid for one time
+  string otp = 2;
+}
+
+//Reset password response
+message resetPassResponse{
+  string messageReset = 1;
+  int32 responseCode  = 2;
+}
+
+
+
+
+
+
+

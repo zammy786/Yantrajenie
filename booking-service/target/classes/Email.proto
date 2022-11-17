@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.yantragenie.email";
+
+service email1 {
+  //  it works the data of the booking
+  rpc sendEmail(requestEmailId) returns (emailResponse);
+  rpc sendingOTP(sendOTP) returns (emailResponse);
+}
+
+message requestEmailId
+{
+  string email=1;
+  string message1=2;
+}
+
+
+message emailResponse
+{
+  int32 responseCode = 15;
+  string responseMessage= 16;
+}
+
+message sendOTP
+{
+  string email=1;
+  int32 OTP=3;
+}

@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package = "com.yantragenie.ticket";
+
+service ticket {
+  rpc createTicket(ticketcreatepayload) returns (id);
+  rpc getTicketFromBookingId(uniqueId) returns (ticketdetails);
+  rpc updateTicket(ticketcreatepayload) returns (id);
+}
+
+message id{
+  string id =1;
+  string responseMessage =2;
+  int32 responseCode =3;
+}
+
+message ticketcreatepayload{
+  string id = 4;
+  string technicianname = 1;
+  string technicialcontactnumber = 2;
+  string estimatedservicedays = 3;
+  string issuedesc = 5;
+}
+
+message uniqueId{
+  string id =1;
+}
+
+
+message ticketdetails{
+  string bookingid = 1;
+  string preferredLocation = 6;
+  string device = 7;
+  string servicedevicebrand = 8;
+  string ticketstatus = 9;
+  string userid = 10;
+  string serviceproviderid = 11;
+  string issuedesc = 12;
+  string ticketgenerationdate = 13;
+  int32 estimatedservicedays = 14;
+  string technicianname =15;
+  string technicialcontactnumber=16;
+  string updatedon = 19;
+  string responseMessage= 17;
+  int32 responseCode = 18;
+}

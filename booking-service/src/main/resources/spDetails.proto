@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_package = "com.yantragenie.spdetail";
+
+service serviceProvider{
+  rpc spGetProfileDetailsUsingId(commid) returns(ProfileDetails);
+
+
+}
+
+
+
+
+message spUpdateProfile{
+  string  id = 1;
+  string first_name=2;
+  string last_name=3;
+  string mobileNumber = 4;
+  string email = 5; //Not update
+  string counterAvilable=6;
+}
+
+message ProfileDetails{
+
+  spUpdateProfile profileDetails=1;
+  int32 responceCode=2;
+  string responceMessage=3;
+  repeated string deviceList=4;
+  repeated string Brands=5;
+  repeated string holiday=6;
+}
+
+message commid{
+  string id=1;
+}
