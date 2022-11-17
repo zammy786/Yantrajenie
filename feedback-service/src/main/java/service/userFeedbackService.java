@@ -15,6 +15,7 @@ public class userFeedbackService extends FeedBackGrpc.FeedBackImplBase {
         String feedback = request.getFeed();
         String spid = request.getSpid();
         int rating = request.getRating();
+        
         if (ChannelUser.validateUser(uid) && ChannelSP.validateUser(spid)) {
             //setting up the response for showing the response accordingly
             UserFeedback.feedbackResponse.Builder response = UserFeedback.feedbackResponse.newBuilder();
